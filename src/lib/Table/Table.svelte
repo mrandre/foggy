@@ -4,37 +4,14 @@
   export let data;
   export let fieldOrder;
   export let headers;
-  export let defaultSortField = null;
   export let decorators = {};
-  let sortField = defaultSortField;
-  const sortComparator = (field) => {
-    return (a, b) => {
-      if (a[field] > b[field]) {
-        return 1;
-      }
-      if (a[field] < b[field]) {
-        return -1;
-      }
-      return 0;
-    };
-  };
-  const sortData = (sortingField) => {
-    if (sortingField === sortField) {
-      data.reverse();
-    }
-    return data.sort(sortComparator(sortingField));
-  };
 </script>
 
 <table cellspacing="0">
   <thead>
     <tr>
       {#each fieldOrder as field}
-        <TH
-          onClick={sortData(field)}
-          activeSort={sortField}
-          sortingField={field}
-        >
+        <TH>
           <div>{headers[field]}</div>
         </TH>
       {/each}
@@ -46,7 +23,11 @@
         {#each fieldOrder as field}
           {#if decorators[field]}
             <TD>
-              <svelte:component this={decorators[field]} rowData={dataRow} />
+              <svelte:component
+                this={decorators[field]}
+                rowData={dataRow}
+                format="table"
+              />
             </TD>
           {:else}
             <TD>{dataRow[field]}</TD>
@@ -61,8 +42,8 @@
   table {
     display: block;
     position: relative;
-    max-height: 600px;
-    max-width: 450px;
+    max-height: calc(100vh - 200px);
+    width: auto;
     overflow-y: scroll;
   }
 
