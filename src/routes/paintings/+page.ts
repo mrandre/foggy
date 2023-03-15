@@ -7,7 +7,7 @@ export const load = (() => {
 
   // const FIELDS = "primaryimageurl, title, people";
 
-  const TOTAL_ITEMS = 250;
+  const TOTAL_ITEMS = 100;
 
   const CULTURES = {
     American: "37526778",
