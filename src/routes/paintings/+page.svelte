@@ -33,7 +33,7 @@
   <div class="button-box">
     <button on:click={() => window.location.reload()} >Refresh</button>
     <button on:click={toggleDisplayType}>
-      Switch to: {displayType === "table" ? "Cards" : "Table"}
+      Switch to: {displayType === "table" ? "Gallery" : "List"}
     </button>
   </div>
   <div class="card">
