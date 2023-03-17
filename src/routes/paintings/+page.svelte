@@ -34,7 +34,7 @@
       <h1>Harvard Art Museums: Paintings</h1>
     </div>
     <div class="button-box">
-      <button on:click={() => window.location.reload()} ><span class="refresh">&#8635;</span></button>
+      <button class="refresh-button" on:click={() => window.location.reload()} ><span class="refresh-icon">&#8635;</span></button>
       <button on:click={toggleDisplayType}>
         View as: {displayType === "table" ? "Gallery" : "List"}
       </button>
@@ -61,11 +61,16 @@
     margin: 0;
   }
 
-  .refresh {
+  .refresh-icon {
     font-size: 16px;
+  }
+
+  .refresh-button {
+    padding: 4px 10px;
   }
   header {
     display: flex;
+    margin-bottom: 10px;
     justify-content: space-between;
     align-items: center;
   }
@@ -76,6 +81,7 @@
   button {
     cursor: pointer;
     text-transform: capitalize;
+    font-weight: bold;
     margin-right: 8px;
     border-radius: 20px;
     border: none;
