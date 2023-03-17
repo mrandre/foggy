@@ -29,13 +29,17 @@
   };
 </script>
 <main>
-  <h1>Paintings of the Harvard Art Museums</h1>
-  <div class="button-box">
-    <button on:click={() => window.location.reload()} >Refresh</button>
-    <button on:click={toggleDisplayType}>
-      Switch to: {displayType === "table" ? "Gallery" : "List"}
-    </button>
-  </div>
+  <header>
+    <div>
+      <h1>Harvard Art Museums: Paintings</h1>
+    </div>
+    <div class="button-box">
+      <button on:click={() => window.location.reload()} ><span class="refresh">&#8635;</span></button>
+      <button on:click={toggleDisplayType}>
+        View as: {displayType === "table" ? "Gallery" : "List"}
+      </button>
+    </div>
+  </header>
   <div class="card">
     {#if displayType === "table"}
       <Table {headers} {fieldOrder} {decorators} data={data.records} />
@@ -54,23 +58,33 @@
 <style>
   h1 {
     color: red;
-    margin-top: 0;
+    margin: 0;
   }
 
+  .refresh {
+    font-size: 16px;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .button-box {
     display: flex;
-    position: absolute;
-    top: 48px;
-    right: 60px;
   }
 
   button {
     cursor: pointer;
     text-transform: capitalize;
-    margin-left: 8px;
-    border: 1px solid #666;
+    margin-right: 8px;
     border-radius: 20px;
-    padding: 8px 20px;
+    border: none;
+    box-shadow: 0 0 2px;
+    padding: 4px 20px;
+  }
+
+  button:last-of-type {
+    margin-right: 0;
   }
 
   button:hover {
@@ -79,10 +93,4 @@
     color: white;
   }
 
-  p {
-    background-color: yellow;
-    width: 80%;
-    height: 200px;
-    overflow-y: scroll;
-  }
 </style>
