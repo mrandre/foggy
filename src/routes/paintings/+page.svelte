@@ -30,9 +30,12 @@
 </script>
 <main>
   <h1>Paintings of the Harvard Art Museums</h1>
-  <button on:click={toggleDisplayType}>
-    Switch to: {displayType === "table" ? "Cards" : "Table"}
-  </button>
+  <div class="button-box">
+    <button on:click={() => window.location.reload()} >Refresh</button>
+    <button on:click={toggleDisplayType}>
+      Switch to: {displayType === "table" ? "Cards" : "Table"}
+    </button>
+  </div>
   <div class="card">
     {#if displayType === "table"}
       <Table {headers} {fieldOrder} {decorators} data={data.records} />
@@ -54,12 +57,17 @@
     margin-top: 0;
   }
 
-  button {
-    cursor: pointer;
-    text-transform: capitalize;
+  .button-box {
+    display: flex;
     position: absolute;
     top: 48px;
     right: 60px;
+  }
+
+  button {
+    cursor: pointer;
+    text-transform: capitalize;
+    margin-left: 8px;
     border: 1px solid #666;
     border-radius: 20px;
     padding: 8px 20px;

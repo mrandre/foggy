@@ -7,7 +7,7 @@ export const load = (() => {
 
   // const FIELDS = "primaryimageurl, title, people";
 
-  const TOTAL_ITEMS = 100;
+  const TOTAL_ITEMS = 50;
 
   const CULTURES = {
     American: "37526778",
@@ -15,11 +15,12 @@ export const load = (() => {
     French: "37527426",
     German: "37527453",
     Greek: "37527534",
-    // Japanese: "37527795",
+    Japanese: "37527795",
   };
+  const SORT = "random";
   const objectUrl = `${API_URL}object/?size=${TOTAL_ITEMS}&hasimage=1&classification=26&culture=${Object.values(
     CULTURES
-  ).join("|")}&q=imagepermissionlevel:0&apikey=${API_KEY}`;
+  ).join("|")}&sort=${SORT}&q=imagepermissionlevel:0&apikey=${API_KEY}`;
   console.log(objectUrl)
   return axios.get(objectUrl).then((json) => {
     console.log(json);
