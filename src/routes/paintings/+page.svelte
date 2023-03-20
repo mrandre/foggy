@@ -62,11 +62,13 @@
   }
 
   .refresh-icon {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: normal;
   }
 
   .refresh-button {
     padding: 4px 10px;
+    font-family: Lucida Sans Unicode;
   }
   header {
     display: flex;
