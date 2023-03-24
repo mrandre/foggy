@@ -21,9 +21,7 @@ export const load = (() => {
   const objectUrl = `${API_URL}object/?size=${TOTAL_ITEMS}&hasimage=1&classification=26&culture=${Object.values(
     CULTURES
   ).join("|")}&sort=${SORT}&q=imagepermissionlevel:0&apikey=${API_KEY}`;
-  console.log(objectUrl)
   return axios.get(objectUrl).then((json) => {
-    console.log(json);
     return json.data;
   } );
 

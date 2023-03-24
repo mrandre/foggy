@@ -8,6 +8,7 @@
 </script>
 
 <div class="grid-card">
+  <a href={`/paintings/${dataRow.objectid}`}>
   <div class="featured">
     <svelte:component this={decorators[featureField]} rowData={dataRow} />
   </div>
@@ -31,9 +32,16 @@
       {/each}
     </dl>
   </div>
+</a>
 </div>
 
 <style>
+
+  a {
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+  }
   .grid-card {
     padding: 8px;
   }

@@ -2,5 +2,8 @@
 	"/": [],
 	"/paintings": [
 		"src/routes/paintings/+page.ts"
+	],
+	"/paintings/[id]": [
+		"src/routes/paintings/[id]/+page.ts"
 	]
 }
